@@ -1,16 +1,21 @@
 from stat_calculations import create_rolls, barbarian_stats, bard_stats, cleric_stats,druid_stats,fighter_stats,monk_stats,paladin_stats,ranger_stats,rogue_stats,warlock_stats,wizard_stats
 from information import class_list, class_skills, backgrounds, background_skills, skills
+
+# Variables for bold and italics.
 b_s = "\033[1m"
 b_e = "\033[0m"
 
 i_s = "\033[3m"
 i_e = "\033[0m"
+
+# Global variables.
 global stat_dict
 global skills
 global skill_string
 global background_f
 global class_skills_list
 
+# Function for when two skills must be changed to proficient.
 def two_skills():
     print("Choose two skills from below to be proficient in:")
     skill_string = class_stat_choice(class_choice)
@@ -33,6 +38,7 @@ def two_skills():
             print()       
     return skills, background_f
 
+# Function for when three skills must be changed to proficient.
 def three_skills():
     print("Choose three skills from below to be proficient in:")
     skill_string = class_stat_choice(class_choice)
@@ -62,7 +68,8 @@ def three_skills():
             print("Please choose a skill from the list above.")
             print()
     return skills, background_f
-    
+
+# Function for when four skills must be changed to proficient.   
 def four_skills():
     print("Choose three skills from below to be proficient in:")
     skill_string = class_stat_choice(class_choice)
@@ -101,6 +108,7 @@ def four_skills():
             print()
     return skills, background_f
 
+# Function to ask user for a background choice.
 def background_stats():
     global skills
     global backgr_choice
@@ -140,6 +148,7 @@ def background_stats():
     
         return skills, backgr_choice
 
+# Functions for determining chosen class
 def class_inp():
     global class_choice
     print("What class do you want to make your character?")
@@ -165,10 +174,12 @@ def class_inp():
             print()
     return class_choice
 
+# Function to determine which skills are already proficient based on background.
+# Then presenting a skill list to choose from with those skills removed.
 def class_stat_choice(class_choice):
     global backgr_choice
-    background_skill_list = background_skills[backgr_choice]  # Get the skills already covered by the background
-    class_skills_list = class_skills[class_choice] # Get the skills associated with the chosen class
+    background_skill_list = background_skills[backgr_choice]                                    # Get the skills already covered by the background
+    class_skills_list = class_skills[class_choice]                                              # Get the skills associated with the chosen class
     leftover_list = []
     for skill in background_skill_list:
         if skill in class_skills_list:
@@ -178,6 +189,8 @@ def class_stat_choice(class_choice):
         skill = skill.capitalize()
     return skill_string
 
+# Function to bring all the aspects from this file together for each class choice.
+# From this, a skills dictionary with proficiency as well as a background choice is returned.
 def class_stats(class_choice): 
     global skills
     global skill_string
