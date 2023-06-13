@@ -360,30 +360,3 @@ tiefling_traits = [
     "Hellish Resistance",
     "Infernal Legacy"
 ]
-dwarf_male = [
-    'Adrik',
-    'Alberich',
-    'Brottor',
-    'Bruenor',
-    'Dain',
-    'Darrak',
-    'Eberk',
-    'Einkil',
-    'Fargrim',
-    'Flint',
-    ]
-
-dwarf_female = [
-    'Amber',
-    'Diesa',
-    'Eldeth',
-    'Kathra',
-    'Kristryd',
-    'Ilde',
-    'Torgga',
-    'Vistra',
-    'Hlin',
-    'Artin',
-    ]
-
-dwarf_clans = []
